@@ -99,12 +99,19 @@ public class Dijkstra {
         }
     }
 
+    private static int leerDimensionValida(Scanner sc, String mensaje) {
+        int valor;
+        do {
+            System.out.print(mensaje);
+            valor = sc.nextInt();
+        } while (valor < 30 || valor > 100);
+        return valor;
+    }
+
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese el número de filas: ");
-        int filas = sc.nextInt();
-        System.out.print("Ingrese el número de columnas: ");
-        int columnas = sc.nextInt();
+        int filas = leerDimensionValida(sc, "Ingrese el número de filas (30-100): ");
+        int columnas = leerDimensionValida(sc, "Ingrese el número de columnas (30-100): ");
         sc.close();
         
         Laberinto lab = new Laberinto();
